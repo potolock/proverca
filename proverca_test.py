@@ -18,10 +18,10 @@ class proverca_test(unittest.TestCase):
     def test_proverca_test(self):
         wd = self.wd
         self.open_home_page(wd)
-        self.login(wd, Group(username="admin", password="secret")
+        self.login(wd, username="admin", password="secret")
         self.open_groups_page(wd)
         self.init_group_creation(wd)
-        self.fill_group_form(wd, Group(name="news_group", footer="proverca svyazi")
+        self.fill_group_form(wd, Group(name="news_group", footer="proverca svyazi"))
         self.submit_group_creation(wd)
         self.return_to_group_page(wd)
         self.logout(wd)
@@ -55,14 +55,14 @@ class proverca_test(unittest.TestCase):
         # open groups page
         wd.find_element_by_link_text("groups").click()
 
-    def login(self, wd, group):
+    def login(self, wd, username, password):
         # login
         wd.find_element_by_name("user").click()
         wd.find_element_by_name("user").clear()
-        wd.find_element_by_name("user").send_keys(group.username)
+        wd.find_element_by_name("user").send_keys(username)
         wd.find_element_by_name("pass").click()
         wd.find_element_by_name("pass").clear()
-        wd.find_element_by_name("pass").send_keys(group.password)
+        wd.find_element_by_name("pass").send_keys(password)
         wd.find_element_by_xpath("//form[@id='LoginForm']/input[3]").click()
 
     def open_home_page(self, wd):
