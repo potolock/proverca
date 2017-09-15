@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 from selenium.webdriver.firefox.webdriver import WebDriver
 import unittest
+from group import Group
 
 def is_alert_present(wd):
     try:
@@ -21,7 +22,7 @@ class proverca_test(unittest.TestCase):
         self.login(wd, username="admin", password="secret")
         self.open_groups_page(wd)
         self.init_group_creation(wd)
-        self.fill_group_form(wd, "name", "header", "group")
+        self.fill_group_form(wd, Group(name="name", header="header", group="group"))
         self.submit_group_create(wd)
         self.return_to_groups_page(wd)
         self.logout(wd)
@@ -42,13 +43,13 @@ class proverca_test(unittest.TestCase):
         # fill group form
         wd.find_element_by_name("group_name").click()
         wd.find_element_by_name("group_name").clear()
-        wd.find_element_by_name("group_name").send_keys(name)
+        wd.find_element_by_name("group_name").send_keys(group.name)
         wd.find_element_by_name("group_header").click()
         wd.find_element_by_name("group_header").clear()
-        wd.find_element_by_name("group_header").send_keys(header)
+        wd.find_element_by_name("group_header").send_keys(group.header)
         wd.find_element_by_name("group_footer").click()
         wd.find_element_by_name("group_footer").clear()
-        wd.find_element_by_name("group_footer").send_keys(group)
+        wd.find_element_by_name("group_footer").send_keys(group.group)
 
     def init_group_creation(self, wd):
         # init group creation
