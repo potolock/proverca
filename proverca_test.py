@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 from selenium.webdriver.firefox.webdriver import WebDriver
 import unittest
+from group import Group
 
 def is_alert_present(wd):
     try:
@@ -20,7 +21,7 @@ class proverca_test(unittest.TestCase):
         self.login(wd, username="admin", password="secret")
         self.open_groups_page(wd)
         self.init_group_creation(wd)
-        self.fill_group_form(wd, name="news_group", footer="proverca svyazi")
+        self.fill_group_form(wd, Group(name="news_group", footer="proverca svyazi")
         self.submit_group_creation(wd)
         self.return_to_group_page(wd)
         self.logout(wd)
@@ -37,14 +38,14 @@ class proverca_test(unittest.TestCase):
         # submit group creation
         wd.find_element_by_name("submit").click()
 
-    def fill_group_form(self, wd, name, footer):
+    def fill_group_form(self, wd, group):
         # fill group form
         wd.find_element_by_name("group_name").click()
         wd.find_element_by_name("group_name").clear()
-        wd.find_element_by_name("group_name").send_keys(name)
+        wd.find_element_by_name("group_name").send_keys(group.name)
         wd.find_element_by_name("group_header").click()
         wd.find_element_by_name("group_header").clear()
-        wd.find_element_by_name("group_header").send_keys(footer)
+        wd.find_element_by_name("group_header").send_keys(group.footer)
 
     def init_group_creation(self, wd):
         # init group creation
