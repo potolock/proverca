@@ -18,7 +18,9 @@ class proverca_test(unittest.TestCase):
     def test_proverca_test(self):
         success = True
         wd = self.wd
+        # open
         wd.get("http://localhost:8080/addressbook/")
+        # login
         wd.find_element_by_name("pass").click()
         wd.find_element_by_name("pass").clear()
         wd.find_element_by_name("pass").send_keys("secret")
@@ -26,8 +28,11 @@ class proverca_test(unittest.TestCase):
         wd.find_element_by_name("user").clear()
         wd.find_element_by_name("user").send_keys("admin")
         wd.find_element_by_xpath("//form[@id='LoginForm']/input[3]").click()
+        # open groups page
         wd.find_element_by_link_text("groups").click()
-        wd.find_element_by_xpath("//div[@id='content']/form/input[4]").click()
+        # init group creation
+        wd.find_element_by_name("new").click()
+        # fill group form
         wd.find_element_by_name("group_name").click()
         wd.find_element_by_name("group_name").clear()
         wd.find_element_by_name("group_name").send_keys("name")
@@ -37,14 +42,13 @@ class proverca_test(unittest.TestCase):
         wd.find_element_by_name("group_footer").click()
         wd.find_element_by_name("group_footer").clear()
         wd.find_element_by_name("group_footer").send_keys("group")
+        # submit group create
         wd.find_element_by_name("submit").click()
+        # return to groups page
         wd.find_element_by_link_text("group page").click()
+        # logout
         wd.find_element_by_link_text("Logout").click()
-        wd.find_element_by_name("pass").click()
-        wd.find_element_by_name("pass").send_keys("\\undefined")
-        wd.find_element_by_name("user").click()
-        wd.find_element_by_name("user").send_keys("\\undefined")
-        self.assertTrue(success)
+
     
     def tearDown(self):
         self.wd.quit()
