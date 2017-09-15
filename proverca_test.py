@@ -3,6 +3,7 @@ from selenium.webdriver.firefox.webdriver import WebDriver
 import unittest
 from group import Group
 
+
 def is_alert_present(wd):
     try:
         wd.switch_to_alert().text
