@@ -1,5 +1,5 @@
 
-class Group:
+class Contact:
     def __init__(self, firstname, lastname, address, email, homepage, address2, notes):
         self.firstname = firstname
         self.lastname = lastname
