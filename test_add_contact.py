@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 from selenium.webdriver.firefox.webdriver import WebDriver
 import  unittest
-from group_cont import Contact
+from group_contacty import Contact
 
 def is_alert_present(wd):
     try:
