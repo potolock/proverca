@@ -1,11 +1,15 @@
 
 from selenium.webdriver.firefox.webdriver import WebDriver
 
-class Application:
-    self.wd = WebDriver(capabilities={"marionette": False})
-    self.wd.implicitly_wait(60)
 
-  def logout(self):
+class Application:
+
+    def __init__(self):
+       self.wd = WebDriver(capabilities={"marionette": False})
+       self.wd.implicitly_wait(60)
+
+
+    def logout(self):
         wd = self.wd
         wd.find_element_by_link_text("Logout").click()
 
@@ -34,7 +38,6 @@ class Application:
 
     def open_group_page(self):
         wd = self.wd
-        # open group page
         wd.find_element_by_link_text("groups").click()
 
     def login(self, user="admin", password="secret"):
@@ -55,6 +58,3 @@ class Application:
     def destroy (self):
         self.wd.quit()
 
-
-if __name__ == '__main__':
-    unittest.main()

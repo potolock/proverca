@@ -12,14 +12,14 @@ def app(request):
     return fixture
 
 
-def test_add_group(app):
-    self.app.login( user="admin", password="secret")
-    self.app.create_group( Group(name="jehfeorwijoe", header="ryg3ky4urgfk34utg", footer="3ye2qy3urk3quwyegf"))
-    self.app.logout()
+def test_test_add_group(app):
+    app.login( user="admin", password="secret")
+    app.create_group( Group(name="jehfeorwijoe", header="ryg3ky4urgfk34utg", footer="3ye2qy3urk3quwyegf"))
+    app.logout()
 
-def test_add_empty_group(app):
-    self.app.login( user="admin", password="secret")
-    self.app.create_group( Group(name="", header="", footer=""))
-    self.app.logout()
+def test_test_add_empty_group(app):
+    app.login( user="admin", password="secret")
+    app.create_group( Group(name="", header="", footer=""))
+    app.logout()
 
 
