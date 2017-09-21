@@ -47,7 +47,7 @@ class GroupHelper_contact:
         wd.find_element_by_xpath("//div[@id='content']/form/input[21]").click()
         self.return_contact_page()
 
-    def fill_new_contact(self, group):
+    def fill_new(self, group):
         wd = self.app.wd
         self.open_contact_page()
         wd.find_element_by_name("firstname").click()
@@ -73,10 +73,7 @@ class GroupHelper_contact:
         wd = self.app.wd
         wd.find_element_by_link_text("add new").click()
 
-    def open_page(self):
-        wd = self.app.wd
-        # open page
-        wd.get("http://localhost:8080/addressbook/")
+
 
 
 
