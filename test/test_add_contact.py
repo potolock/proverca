@@ -16,10 +16,10 @@ def app(request):
 def test_test_add_contact(app):
     app.session.login( username="admin", password="secret")
     app.fill_new_contact( Contact(firstname="natalia", lastname="krasnova", company="jhkjh", address="fewderf", email="email@email.ru", homepage="site.ru"))
-    app.logout()
+    app.session.logout()
 
 def test_test_add_empty_contact(app):
-     app.login( username="admin", password="secret")
+     app.session.login( username="admin", password="secret")
      app.fill_new_contact( Contact(firstname="", lastname="", company="", address="", email="", homepage=""))
-     app.logout()
+     app.session.logout()
 
