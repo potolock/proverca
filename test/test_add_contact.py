@@ -3,6 +3,7 @@ import pytest
 
 from fixture.application import Application_contact
 from model.group import Group
+from model.group import Contact
 
 
 @pytest.fixture
@@ -12,13 +13,13 @@ def app(request):
     return fixture
 
 
-def test_test_add_group(app):
-    app.session.login(username="admin", password="secret")
-    app.create(Group(name="jehfeorwijoe", header="ryg3ky4urgfk34utg", footer="3ye2qy3urk3quwyegf"))
-    app.session.logout()
+def test_test_add_contact(app):
+    app.session.login( username="admin", password="secret")
+    app.fill_new_contact( Contact(firstname="natalia", lastname="krasnova", company="jhkjh", address="fewderf", email="email@email.ru", homepage="site.ru"))
+    app.logout()
 
-def test_test_add_empty_group(app):
-    app.session.login(username="admin", password="secret")
-    app.create(Group(name="", header="", footer=""))
-    app.session.logout()
+def test_test_add_empty_contact(app):
+     app.login( username="admin", password="secret")
+     app.fill_new_contact( Contact(firstname="", lastname="", company="", address="", email="", homepage=""))
+     app.logout()
 
