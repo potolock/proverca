@@ -43,6 +43,13 @@ class GroupHelper_group:
          wd.find_element_by_link_text("groups").click()
 
 
+
+
+
+
+
+
+
 class GroupHelper_contact:
     def __init__(self, app1):
         self.app1 = app1
@@ -65,7 +72,7 @@ class GroupHelper_contact:
         wd.find_element_by_xpath("//*[@value='Delete']").click()
 
         # selecr action
-        wd.switch_to_alert().accept()
+        #wd.switch_to_alert().accept()
         self.return_contact_page()
 
     def fill_new(self, group):
