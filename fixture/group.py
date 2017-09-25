@@ -15,10 +15,8 @@ class GroupHelper_group:
           # select first group
           wd.find_element_by_name("selected[]").click()
           # submit delete
-          wd.find_element_by_name("delete").click()
+          wd.find_element_by_value("delete").click()
           self.return_to_group_page()
-
-
 
       def create(self, group):
         wd = self.app.wd
@@ -46,20 +44,32 @@ class GroupHelper_group:
 
 
 class GroupHelper_contact:
-    def __init__(self, app):
-        self.app = app
+    def __init__(self, app1):
+        self.app1 = app1
 
     def return_contact_page(self):
-        wd = self.app.wd
+        wd = self.app1.wd
         wd.find_element_by_link_text("home page").click()
 
     def submit(self):
-        wd = self.app.wd
+        wd = self.app1.wd
         wd.find_element_by_xpath("//div[@id='content']/form/input[21]").click()
         self.return_contact_page()
 
+    def delete_first_contact(self):
+        wd = self.app1.wd
+        #self.open_contact_page()
+        # select first contact
+        wd.find_element_by_name("selected[]").click()
+        # submit deletion
+        wd.find_element_by_name("Delete").click()
+
+        # selecr action
+        wd.switch_to_alert().accept()
+        self.return_contact_page()
+
     def fill_new(self, group):
-        wd = self.app.wd
+        wd = self.app1.wd
         self.open_contact_page()
         wd.find_element_by_name("firstname").click()
         wd.find_element_by_name("firstname").clear()
@@ -81,8 +91,9 @@ class GroupHelper_contact:
         wd.find_element_by_name("homepage").send_keys(group.homepage)
 
     def open_contact_page(self):
-        wd = self.app.wd
+        wd = self.app1.wd
         wd.find_element_by_link_text("add new").click()
+
 
 
 
