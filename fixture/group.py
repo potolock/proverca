@@ -44,12 +44,6 @@ class GroupHelper_group:
 
 
 
-
-
-
-
-
-
 class GroupHelper_contact:
     def __init__(self, app):
         self.app = app
