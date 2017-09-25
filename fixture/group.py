@@ -62,7 +62,7 @@ class GroupHelper_contact:
         # select first contact
         wd.find_element_by_name("selected[]").click()
         # submit deletion
-        wd.find_element_by_name("Delete").click()
+        wd.find_element_by_xpath("//*[@value='Delete']").click()
 
         # selecr action
         wd.switch_to_alert().accept()
