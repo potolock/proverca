@@ -9,7 +9,7 @@ class GroupHelper_group:
         wd = self.app.wd
         wd.find_element_by_link_text("group page").click()
 
-      def delete_first_group (self):
+      def delete_first_group (self) -> object:
           wd = self.app.wd
           self.open_group_page()
           # select first group
