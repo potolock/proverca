@@ -2,7 +2,7 @@
 
 import pytest
 from fixture.application import Application
-# from fixture.application import Application_contact
+
 
 @pytest.fixture(scope="session")
 def app(request):
@@ -12,10 +12,6 @@ def app(request):
 
 
 
-# @pytest.fixture(scope="session")
-# def app1(request):
-    # fixture = Application_contact()
-   #  request.addfinalizer(fixture.destroy)
-    # return fixture
+
 
 
