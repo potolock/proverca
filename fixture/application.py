@@ -6,6 +6,7 @@ from fixture.group import GroupHelper_contact
 
 class Application:
 
+
     def __init__(self):
         self.wd = WebDriver(capabilities={"marionette": False})
         self.wd.implicitly_wait(60)
@@ -13,11 +14,15 @@ class Application:
         self.contact = GroupHelper_contact(self)
         self.group = GroupHelper_group (self)
 
+
     def open_home_page(self):
         wd = self.wd
         wd.get("http://localhost:8080/addressbook/")
 
+
     def destroy (self):
         self.wd.quit()
+
+
 
 
