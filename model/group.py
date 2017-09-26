@@ -7,7 +7,6 @@ class Group:
         self.footer = footer
 
 
-
 class Contact:
     def __init__(self, firstname, lastname, company, address, email, homepage):
         self.firstname = firstname
@@ -16,3 +15,4 @@ class Contact:
         self.address = address
         self.email = email
         self.homepage = homepage
+        
