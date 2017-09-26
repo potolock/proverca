@@ -43,7 +43,6 @@ class GroupHelper_group:
          wd.find_element_by_link_text("groups").click()
 
 
-
 class GroupHelper_contact:
     def __init__(self, app):
         self.app = app
@@ -89,7 +88,7 @@ class GroupHelper_contact:
         wd.find_element_by_name("homepage").click()
         wd.find_element_by_name("homepage").clear()
         wd.find_element_by_name("homepage").send_keys(group.homepage)
-
+        
     def open_contact_page(self):
         wd = self.app.wd
         wd.find_element_by_link_text("add new").click()
