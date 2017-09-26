@@ -15,4 +15,3 @@ class Contact:
         self.address = address
         self.email = email
         self.homepage = homepage
-        
