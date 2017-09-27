@@ -1,7 +1,7 @@
 from selenium.webdriver.firefox.webdriver import WebDriver
 from fixture.session import SessionHelper
-from fixture.group import GroupHelper_group
-from fixture.group import GroupHelper_contact
+from fixture.group import Helper_group
+from fixture.group import Helper_contact
 
 
 class Application:
@@ -11,8 +11,8 @@ class Application:
         self.wd = WebDriver(capabilities={"marionette": False})
         self.wd.implicitly_wait(5)
         self.session = SessionHelper(self)
-        self.contact = GroupHelper_contact(self)
-        self.group = GroupHelper_group (self)
+        self.contact = Helper_contact(self)
+        self.group = Helper_group (self)
 
     def is_valid(self):
         try:
