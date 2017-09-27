@@ -8,7 +8,7 @@ class Group:
 
 
 class Contact:
-    def __init__(self, firstname, lastname, company, address, email, homepage):
+    def __init__(self, firstname=None, lastname=None, company=None, address=None, email=None, homepage=None):
         self.firstname = firstname
         self.lastname = lastname
         self.company = company
