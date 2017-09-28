@@ -93,9 +93,6 @@ class Helper_contact:
 
     def modify_first_contact(self, new_contact_data):
         wd = self.app.wd
-        # self.open_contact_page()
-        # self.select_first_contact()
-        # open modification form
         wd.find_element_by_xpath("//table[@id='maintable']/tbody/tr[2]/td[8]/a/img").click()
         # fill group form
         self.fill_contact_form(new_contact_data)
@@ -107,7 +104,7 @@ class Helper_contact:
 
     def submit(self):
         wd = self.app.wd
-        wd.find_element_by_xpath("//div[@id='content']/form/input[21]").click()
+        wd.find_element_by_name("submit").click()
         self.return_contact_page()
 
 
@@ -155,7 +152,8 @@ class Helper_contact:
 
     def open_contact_page(self):
         wd = self.app.wd
-        wd.find_element_by_link_text("add new").click()
+        if not (wd.current_url.endswith("edit.php") and len (wd.find_elements_by_name("photo")) == 0):
+           wd.find_element_by_link_text("add new").click()
 
 
 
