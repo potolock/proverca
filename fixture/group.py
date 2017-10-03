@@ -1,6 +1,6 @@
 
 
-from model.group import Group
+from model.group import Group, Contact
 
 
 class Helper_group:
@@ -94,6 +94,18 @@ class Helper_contact:
     def __init__(self, app):
         self.app = app
 
+
+
+    def get_contact_list(self):
+        wd = self.app.wd
+        contacts = []
+        for el in wd.find_elements_by_xpath("//table[@id='maintable']/tbody/tr[@name='entry']"):
+            lastname = el.find_element_by_xpath("td[2]").text
+            firstname = el.find_element_by_xpath("td[3]").text
+            address = el.find_element_by_xpath("td[4]").text
+            email = el.find_element_by_xpath("//td[5]/a").text
+            contacts.append(Contact(firstname=firstname, lastname=lastname, address=address, email=email))
+        return contacts
 
     def count(self):
         wd = self.app.wd
