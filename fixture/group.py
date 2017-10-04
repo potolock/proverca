@@ -1,6 +1,10 @@
 
-
+from selenium.common.exceptions import TimeoutException
+from selenium.common.exceptions import NoSuchElementException
 from model.group import Group, Contact
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.support.ui import WebDriverWait
 
 
 class Helper_group:
@@ -94,17 +98,21 @@ class Helper_contact:
     def __init__(self, app):
         self.app = app
 
-
-
     def get_contact_list(self):
         wd = self.app.wd
         contacts = []
         for el in wd.find_elements_by_xpath("//table[@id='maintable']/tbody/tr[@name='entry']"):
+            text = el.text
             lastname = el.find_element_by_xpath("td[2]").text
             firstname = el.find_element_by_xpath("td[3]").text
             address = el.find_element_by_xpath("td[4]").text
-            email = el.find_element_by_xpath("//td[5]/a").text
-            contacts.append(Contact(firstname=firstname, lastname=lastname, address=address, email=email))
+            try:
+                email = el.find_element_by_xpath("td[5]/a").text
+                # email = WebDriverWait(el, timeout=0.5).until(EC.presence_of_element_located((By.XPATH, 'td[5]/a'))).text
+            except NoSuchElementException:
+                email = ""
+            id = el.find_element_by_name("selected[]").get_attribute("value")
+            contacts.append(Contact(firstname=text, id=id))
         return contacts
 
     def count(self):
