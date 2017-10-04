@@ -91,9 +91,6 @@ class Helper_group:
 
 
 
-
-
-
 class Helper_contact:
     def __init__(self, app):
         self.app = app
@@ -102,17 +99,17 @@ class Helper_contact:
         wd = self.app.wd
         contacts = []
         for el in wd.find_elements_by_xpath("//table[@id='maintable']/tbody/tr[@name='entry']"):
-            text = el.text
             lastname = el.find_element_by_xpath("td[2]").text
             firstname = el.find_element_by_xpath("td[3]").text
             address = el.find_element_by_xpath("td[4]").text
+            # email = el.find_element_by_xpath("td[5]/a").text
             try:
                 email = el.find_element_by_xpath("td[5]/a").text
                 # email = WebDriverWait(el, timeout=0.5).until(EC.presence_of_element_located((By.XPATH, 'td[5]/a'))).text
             except NoSuchElementException:
                 email = ""
             id = el.find_element_by_name("selected[]").get_attribute("value")
-            contacts.append(Contact(firstname=text, id=id))
+            contacts.append(Contact(firstname=firstname, lastname=lastname, address=address, email=email, id=id))
         return contacts
 
     def count(self):
