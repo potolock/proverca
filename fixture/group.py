@@ -76,7 +76,7 @@ class Helper_group:
          wd.find_element_by_name("submit").click()
          self.return_to_group_page()
          self.group_cache = None
-         
+
 
      def fill_group_form(self, group):
          wd = self.app.wd
