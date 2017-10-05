@@ -105,6 +105,7 @@ class Helper_contact:
         self.app = app
 
 
+
     def get_contact_list(self):
         wd = self.app.wd
         contacts = []
