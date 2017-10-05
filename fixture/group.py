@@ -131,8 +131,8 @@ class Helper_contact:
 
     def return_contact_page(self):
         wd = self.app.wd
-        wd.find_element_by_link_text("home page").click()
 
+        wd.find_element_by_link_text("home page").click()
     def modify_first_contact(self, new_contact_data):
         wd = self.app.wd
         wd.find_element_by_xpath("//table[@id='maintable']/tbody/tr[2]/td[8]/a/img").click()
