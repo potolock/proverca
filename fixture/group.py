@@ -104,24 +104,26 @@ class Helper_contact:
     def __init__(self, app):
         self.app = app
 
+    contact_cache = None
 
 
     def get_contact_list(self):
-        wd = self.app.wd
-        contacts = []
-        for el in wd.find_elements_by_xpath("//table[@id='maintable']/tbody/tr[@name='entry']"):
-            text = el.text
-            lastname = el.find_element_by_xpath("td[2]").text
-            firstname = el.find_element_by_xpath("td[3]").text
-            address = el.find_element_by_xpath("td[4]").text
-            #email = el.find_element_by_xpath("td[5]/a").text
-            #try:
-                  #email = el.find_element_by_xpath("td[5]/a").text
-            #except NoSuchElementException:
-                #email = ""
-            id = el.find_element_by_name("selected[]").get_attribute("value")
-            contacts.append(Contact(firstname=firstname, lastname=lastname, address=address, id=id))
-        return contacts
+        if self.contact_cache is None:
+            wd = self.app.wd
+            self.contact_cache = []
+            for el in wd.find_elements_by_xpath("//table[@id='maintable']/tbody/tr[@name='entry']"):
+                text = el.text
+                lastname = el.find_element_by_xpath("td[2]").text
+                firstname = el.find_element_by_xpath("td[3]").text
+                address = el.find_element_by_xpath("td[4]").text
+                #email = el.find_element_by_xpath("td[5]/a").text
+                #try:
+                      #email = el.find_element_by_xpath("td[5]/a").text
+                #except NoSuchElementException:
+                    #email = ""
+                id = el.find_element_by_name("selected[]").get_attribute("value")
+                self.contact_cache.append(Contact(firstname=firstname, lastname=lastname, address=address, id=id))
+        return list(self.contact_cache)
 
     def count(self):
         wd = self.app.wd
@@ -131,8 +133,9 @@ class Helper_contact:
 
     def return_contact_page(self):
         wd = self.app.wd
-
         wd.find_element_by_link_text("home page").click()
+
+
     def modify_first_contact(self, new_contact_data):
         wd = self.app.wd
         wd.find_element_by_xpath("//table[@id='maintable']/tbody/tr[2]/td[8]/a/img").click()
@@ -141,6 +144,7 @@ class Helper_contact:
         # submit modification
         wd.find_element_by_name("update").click()
         self.return_contact_page()
+        self.contact_cache = None
 
 
 
@@ -158,6 +162,7 @@ class Helper_contact:
         wd.find_element_by_xpath("//*[@value='Delete']").click()
         # selecr action
         wd.switch_to_alert().accept()
+        self.contact_cache = None
 
     def select_first_contact(self):
         wd = self.app.wd
@@ -172,6 +177,7 @@ class Helper_contact:
         # submit contact creation
         wd.find_element_by_name("submit").click()
         self.return_contact_page()
+        self.contact_cache = None
 
 
     def fill_contact_form(self, contact):
