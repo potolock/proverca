@@ -116,24 +116,24 @@ class Helper_contact:
                 lastname = el.find_element_by_xpath("td[2]").text
                 firstname = el.find_element_by_xpath("td[3]").text
                 address = el.find_element_by_xpath("td[4]").text
-                #email = el.find_element_by_xpath("td[5]/a").text
-                #try:
-                      #email = el.find_element_by_xpath("td[5]/a").text
-                #except NoSuchElementException:
-                    #email = ""
+                # try:
+                #     email = el.find_element_by_xpath("td[5]/a").text
+                # except NoSuchElementException:
+                #     email = ""
                 id = el.find_element_by_name("selected[]").get_attribute("value")
                 self.contact_cache.append(Contact(firstname=firstname, lastname=lastname, address=address, id=id))
         return list(self.contact_cache)
 
+
+
     def count(self):
         wd = self.app.wd
-        self.open_contact_page()
+        self.return_home_page()
         return len(wd.find_elements_by_name("selected[]"))
 
-
-    def return_contact_page(self):
+    def return_home_page(self):
         wd = self.app.wd
-        wd.find_element_by_link_text("home page").click()
+        wd.find_element_by_link_text("home").click()
 
 
     def modify_first_contact(self, new_contact_data):
@@ -143,17 +143,13 @@ class Helper_contact:
         self.fill_contact_form(new_contact_data)
         # submit modification
         wd.find_element_by_name("update").click()
-        self.return_contact_page()
+        self.return_home_page()
         self.contact_cache = None
-
-
 
     def submit(self):
         wd = self.app.wd
         wd.find_element_by_name("submit").click()
-        self.return_contact_page()
-
-
+        self.return_home_page()
 
     def delete_first_contact(self):
         wd = self.app.wd
@@ -170,13 +166,13 @@ class Helper_contact:
 
     def fill_new(self, group):
         wd = self.app.wd
-        self.open_contact_page()
+        self.return_home_page()
         # init contact create
         wd.find_element_by_link_text("add new").click()
         self.fill_contact_form(group)
         # submit contact creation
         wd.find_element_by_name("submit").click()
-        self.return_contact_page()
+        self.return_home_page()
         self.contact_cache = None
 
 
@@ -198,10 +194,10 @@ class Helper_contact:
             wd.find_element_by_name(field_name).clear()
             wd.find_element_by_name(field_name).send_keys(text)
 
-    def open_contact_page(self):
+    def open_edit_page(self):
         wd = self.app.wd
-        if not (wd.current_url.endswith("http://localhost:8080/addressbook/") and len (wd.find_elements_by_name("add")) > 0):
-           wd.find_element_by_link_text("add new").click()
+        if (wd.current_url.endswith("http://localhost:8080/addressbook/") and (len(wd.find_elements_by_name("add")) > 0)):
+            wd.find_element_by_link_text("add new").click()
 
 
 
