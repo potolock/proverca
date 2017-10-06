@@ -170,18 +170,29 @@ class Helper_contact:
         wd.find_element_by_name("submit").click()
         self.return_home_page()
 
-    def delete_first_contact(self):
+    def select_contact_by_index(self, index):
         wd = self.app.wd
-        self.select_first_contact()
-        # submit deletion
+        wd.find_elements_by_name("selected[]")[index].click()
+
+    def delete_contact_by_index (self, index):
+        wd = self.app.wd
+        self.select_contact_by_index(index)
         wd.find_element_by_xpath("//*[@value='Delete']").click()
-        # selecr action
         wd.switch_to_alert().accept()
         self.contact_cache = None
 
+
+    # def delete_first_contact(self):
+    #     wd = self.app.wd
+    #     self.select_first_contact()
+    #     # submit deletion
+    #     wd.find_element_by_xpath("//*[@value='Delete']").click()
+    #     # selecr action
+    #     wd.switch_to_alert().accept()
+    #     self.contact_cache = None
+
     def select_first_contact(self):
-        wd = self.app.wd
-        wd.find_element_by_name("selected[]").click()
+        self.delete_contact_by_index(0)
 
     def fill_new(self, group):
         wd = self.app.wd
