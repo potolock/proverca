@@ -154,16 +154,18 @@ class Helper_contact:
         wd = self.app.wd
         wd.find_element_by_link_text("home").click()
 
-
-    def modify_first_contact(self, new_contact_data):
+    def modify_contact_by_index(self, index, new_contact_data):
         wd = self.app.wd
-        wd.find_element_by_xpath("//table[@id='maintable']/tbody/tr[2]/td[8]/a/img").click()
+        wd.find_elements_by_xpath("//table[@id='maintable']/tbody/tr/td[8]/a/img")[index].click()
         # fill group form
         self.fill_contact_form(new_contact_data)
         # submit modification
         wd.find_element_by_name("update").click()
         self.return_home_page()
         self.contact_cache = None
+
+    def modify_first_contact(self, new_contact_data):
+        self.modify_contact_by_index(0)
 
     def submit(self):
         wd = self.app.wd
@@ -226,7 +228,7 @@ class Helper_contact:
 
     def open_edit_page(self):
         wd = self.app.wd
-        if (wd.current_url.endswith("http://localhost:8080/addressbook/") and (len(wd.find_elements_by_name("add")) > 0)):
+        if (wd.current_url.endswith("http://localhost:8080/addressbook/") and (len(wd.find_element_by_name("to_group")) > 0)):
             wd.find_element_by_link_text("add new").click()
 
 
