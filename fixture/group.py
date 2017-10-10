@@ -161,10 +161,10 @@ class Helper_contact:
             self.contact_cache = []
             for el in wd.find_elements_by_xpath("//table[@id='maintable']/tbody/tr[@name='entry']"):
                 text = el.text
-                lastname = el.find_element_by_xpath("td[2]").text
-                firstname = el.find_element_by_xpath("td[3]").text
+                lastname = el.find_element_by_xpath("./td[2]").text
+                firstname = el.find_element_by_xpath("./td[3]").text
                 id = el.find_element_by_name("selected[]").get_attribute("value")
-                all_phones = el.find_element_by_xpath("td[6]").text.splitlines()
+                all_phones = el.find_element_by_xpath("./td[6]").text.splitlines()
                 self.contact_cache.append(Contact(firstname=firstname, lastname=lastname, id=id, homephone=all_phones[0], mobilephone=all_phones[1], workphone=all_phones[2], secondaryphone=all_phones[3]))
         return list(self.contact_cache)
 
