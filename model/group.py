@@ -26,7 +26,7 @@ class Group:
 
 class Contact:
 
-    def __init__(self, firstname=None, lastname=None, homephone=None, mobilephone=None, workphone=None, secondaryphone=None, id=None, address=None, company=None, email=None, homepage=None):
+    def __init__(self, firstname=None, lastname=None, id=None, all_phones_from_home_page=None, homephone=None, mobilephone=None, workphone=None, secondaryphone=None, address=None, company=None, email=None, homepage=None):
         self.firstname = firstname
         self.lastname = lastname
         self.address = address
@@ -38,6 +38,7 @@ class Contact:
         self.workphone = workphone
         self.secondaryphone = secondaryphone
         self.id = id
+        self.all_phones_from_home_page = all_phones_from_home_page
 
     def __repr__(self):
         return "%s:%s:%s:%s" % (self.id, self.firstname, self.lastname, self.homephone, self.mobilephone, self.workphone, self.secondaryphone, self.address)

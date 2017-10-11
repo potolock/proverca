@@ -1,10 +1,7 @@
 
-from selenium.common.exceptions import TimeoutException
-from selenium.common.exceptions import NoSuchElementException
 from model.group import Group, Contact
-from selenium.webdriver.common.by import By
-from selenium.webdriver.support import expected_conditions as EC
-from selenium.webdriver.support.ui import WebDriverWait
+import re
+
 
 
 class Helper_group:
@@ -125,9 +122,24 @@ class Helper_contact:
 
     contact_cache = None
 
+    def get_contact_from_view_page(self, index):
+        wd = self.app.wd
+        self.open_contact_view_by_index(index)
+        #vychlenyaem text i k nemu primenyaem regulyarnoe vyragenie
+        text = wd.find_element_by_id("content").text
+        homephone = re.search("H: (.*)", text).group(1)
+        workphone = re.search("W: (.*)", text).group(1)
+        mobilephone = re.search("M: (.*)", text).group(1)
+        secondaryphone = re.search("P: (.*)", text).group(1)
+        return Contact(homephone=homephone, mobilephone=mobilephone,
+                   workphone=workphone, secondaryphone=secondaryphone)
+
+
+
+
     def open_contact_view_by_index(self, index):
         wd = self.app.wd
-        self.app.open_home_page()
+        #self.app.open_home_page()
         row = wd.find_elements_by_name("entry")[index]
         cell = row.find_elements_by_tag_name("td")[6]
         cell.find_element_by_tag_name("a").click()
@@ -165,7 +177,7 @@ class Helper_contact:
                 firstname = el.find_element_by_xpath("./td[3]").text
                 id = el.find_element_by_name("selected[]").get_attribute("value")
                 all_phones = el.find_element_by_xpath("./td[6]").text.splitlines()
-                self.contact_cache.append(Contact(firstname=firstname, lastname=lastname, id=id, homephone=all_phones[0], mobilephone=all_phones[1], workphone=all_phones[2], secondaryphone=all_phones[3]))
+                self.contact_cache.append(Contact(firstname=firstname, lastname=lastname, id=id, all_phones_from_home_page = all_phones))
         return list(self.contact_cache)
 
 
@@ -270,6 +282,10 @@ class Helper_contact:
         wd = self.app.wd
         if (wd.current_url.endswith("http://localhost:8080/addressbook/") and (len(wd.find_element_by_name("to_group")) > 0)):
             wd.find_element_by_link_text("add new").click()
+
+    def open_home_page(self):
+        wd = self.app.wd
+        wd.find_element_by_link_text("home").click()
 
 
 
