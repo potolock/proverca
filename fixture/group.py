@@ -176,7 +176,7 @@ class Helper_contact:
                 lastname = el.find_element_by_xpath("./td[2]").text
                 firstname = el.find_element_by_xpath("./td[3]").text
                 id = el.find_element_by_name("selected[]").get_attribute("value")
-                all_phones = el.find_element_by_xpath("./td[6]").text.splitlines()
+                all_phones = el.find_element_by_xpath("./td[6]").text
                 self.contact_cache.append(Contact(firstname=firstname, lastname=lastname, id=id, all_phones_from_home_page = all_phones))
         return list(self.contact_cache)
 
