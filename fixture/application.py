@@ -13,7 +13,7 @@ class Application:
         elif browser == "chrome":
             self.wd = webdriver.Chrome(executable_path="C:\SeleniumDrivers\chromedriver.exe")
         elif browser == "ie":
-            self.wd = webdriver.Ie(executable_path="C:\Bin\IEDriverServer.exe")
+            self.wd = webdriver.Ie(executable_path="C:\SeleniumDrivers\IEDriverServer.exe")
         else:
             raise ValueError("Unrecognized browser %s" % browser)
         self.wd.implicitly_wait(0.5)
