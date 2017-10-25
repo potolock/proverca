@@ -23,21 +23,21 @@ class Helper_group:
          return list(self.group_cache)
 
 
-     def get_group_list_full(self):
-         if self.group_cache is None:
-             wd = self.app.wd
-             self.open_group_page()
-             self.group_cache = []
-             for element in wd.find_elements_by_css_selector("span.group"):
-                 name = element.text
-                 id = element.find_element_by_name("selected[]").get_attribute("value")
-                 self.select_group_by_index(int(id))
-                 wd.find_element_by_name("edit").click()
-                 header = wd.find_element_by_name("group_header").text
-                 footer = wd.find_element_by_name("group_footer").text
-                 wd.find_element_by_link_text("groups").click()
-                 self.group_cache.append(Group(name=name, header=header, footer=footer, id=id))
-         return list(self.group_cache)
+     # def get_group_list_full(self):
+     #     if self.group_cache is None:
+     #         wd = self.app.wd
+     #         self.open_group_page()
+     #         self.group_cache = []
+     #         for element in wd.find_elements_by_css_selector("span.group"):
+     #             name = element.text
+     #             id = element.find_element_by_name("selected[]").get_attribute("value")
+     #             self.select_group_by_index(int(id))
+     #             wd.find_element_by_name("edit").click()
+     #             header = wd.find_element_by_name("group_header").text
+     #             footer = wd.find_element_by_name("group_footer").text
+     #             wd.find_element_by_link_text("groups").click()
+     #             self.group_cache.append(Group(name=name, header=header, footer=footer, id=id))
+     #     return list(self.group_cache)
 
 
      def count(self):
@@ -71,6 +71,19 @@ class Helper_group:
          wd = self.app.wd
          wd.find_elements_by_name("selected[]")[index].click()
 
+     def select_group_by_id(self, id):
+         wd = self.app.wd
+         wd.find_element_by_css_selector("input[value='%s']" % id).click()
+
+     def delete_group_by_id(self, id):
+         wd = self.app.wd
+         self.open_group_page()
+         self.select_group_by_id(id)
+         # submit delete
+         wd.find_element_by_name("delete").click()
+         self.return_to_group_page()
+         self.group_cache = None
+
 
      def delete_group_by_index (self, index):
           wd = self.app.wd
@@ -80,6 +93,9 @@ class Helper_group:
           wd.find_element_by_name("delete").click()
           self.return_to_group_page()
           self.group_cache = None
+
+
+
 
      def delete_first_group(self):
          self.delete_group_by_index (0)
