@@ -2,21 +2,19 @@
 # -*- coding: utf-8 -*-
 
 from model.group import Contact
-from random import randrange
+import random
 
 
 
-def test_modify_contact_by_index(app):
-    if app.contact.count() == 0:
-        app.contact.fill_new(Contact(lastname="ivanova"))
-    old_contact_list = app.contact.get_contact_list()
-    index = randrange(len(old_contact_list))
-    contact = Contact(firstname="veronica")
-    contact.id = old_contact_list[index].id
-    app.contact.modify_contact_by_index(index, contact)
+def test_modify_contact(app, db):
+    if len(db.get_contact_list()) == 0:
+        app.contact.fill_new(Contact(firstname="tester"))
+    old_contact_list = db.get_contact_list()
+    contact = random.choice(old_contact_list)
+    contact.firstname = "veronica"
+    app.contact.modify_contact(contact)
     assert len(old_contact_list) ==  app.contact.count()
-    new_contact_list = app.contact.get_contact_list()
-    old_contact_list[index] = contact
+    new_contact_list = db.get_contact_list()
     assert sorted(old_contact_list, key=Contact.id_or_max) == sorted(new_contact_list, key=Contact.id_or_max)
 
 
