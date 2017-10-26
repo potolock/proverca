@@ -26,7 +26,9 @@ class Group:
 
 class Contact:
 
-    def __init__(self, firstname=None, lastname=None, company=None, homepage=None, id=None, all_emails_from_home_page=None, all_phones_from_home_page=None, homephone=None, mobilephone=None, workphone=None, secondaryphone=None, address=None, email=None, email2=None, email3=None):
+    def __init__(self, firstname=None, lastname=None, company=None, homepage=None, id=None, all_emails_from_home_page=None,
+                 all_phones_from_home_page=None, homephone=None, mobilephone=None, workphone=None, secondaryphone=None,
+                 address=None, email=None, email2=None, email3=None):
         self.lastname = lastname
         self.firstname = firstname
         self.company  = company
@@ -45,7 +47,7 @@ class Contact:
 
     def __repr__(self):
         return "%s:%s:%s:%s:%s:%s:%s" % (self.firstname, self.lastname,self.company,
-                                                                       self.address, self.email, self.homepage, self.id, )
+                                                                       self.address, self.email, self.homepage, self.id)
 
     def __eq__(self, other):
         return (self.id is None or other.id is None or self.id == other.id) and self.firstname == other.firstname
