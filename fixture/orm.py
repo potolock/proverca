@@ -3,6 +3,7 @@ from pony.orm import*
 from model.group import Group, Contact
 from pymysql.converters import decoders
 
+
 class ORMFixture:
 
 
@@ -23,7 +24,7 @@ class ORMFixture:
         firstname = Optional(str, column='firstname')
         lastname = Optional(str, column='lastname')
         deprecated = Optional(datetime, column='deprecated')
-        groups = Set(ORMFixture.ORMGroup, table="address_to_group", column="group.id", reverse="contacts", lazy=True)
+        groups = Set(lambda: ORMFixture.ORMGroup, table="address_in_groups", column="group.id", reverse="contacts", lazy=True)
 
 
     def __init__(self, host, name, user, password):
@@ -53,5 +54,5 @@ class ORMFixture:
 
     @db_session
     def get_contacts_in_group(self, group):
-        orm_group = select(g for g in ORMFixture.ORMGroup if g.id == group.id)[1]
+        orm_group = list(select(g for g in ORMFixture.ORMGroup if g.id == group.id))[0]
         return self.convert_contacts_to_model(orm_group.contacts)
