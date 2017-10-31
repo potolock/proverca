@@ -314,10 +314,11 @@ class Helper_contact:
         wd.switch_to_alert().accept()
         self.contact_cache = None
 
-    def delete_contact_in_group(self, id):
+    def delete_contact_in_group(self, contact, group):
         wd = self.app.wd
-        wd.find_element_by_name("group").click()
-        self.select_contact_in_group()
+        self.app.open_home_page()
+        wd.find_element_by_xpath("//form[@id='right']/select//option[@value='%s']" % group.id).click()
+        self.select_contact_by_id(contact.id)
         wd.find_element_by_xpath("//*[@value='Delete']").click()
         wd.switch_to_alert().accept()
         self.contact_cache = None
