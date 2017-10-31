@@ -1,6 +1,8 @@
 
 from model.group import Group, Contact
+from selenium.webdriver.support.ui import Select
 import re
+import random
 
 
 
@@ -166,6 +168,14 @@ class Helper_contact:
 
     contact_cache = None
 
+    def add_contact_in_group(self, contact, group):
+        wd = self.app.wd
+        self.app.open_home_page()
+        self.select_contact_by_id(contact.id)
+        wd.find_element_by_xpath("//div[@class='right']/select//option[@value='%s']" % group.id).click()
+        wd.find_element_by_name("add").click()
+        self.return_home_page()
+
 
 
     def get_contact_from_view_page(self, index):
@@ -179,8 +189,6 @@ class Helper_contact:
         secondaryphone = re.search("P: (.*)", text).group(1)
         return Contact(homephone=homephone, mobilephone=mobilephone,
                    workphone=workphone, secondaryphone=secondaryphone)
-
-
 
 
     def open_contact_view_by_index(self, index):
@@ -305,6 +313,20 @@ class Helper_contact:
         wd.find_element_by_xpath("//*[@value='Delete']").click()
         wd.switch_to_alert().accept()
         self.contact_cache = None
+
+    def delete_contact_in_group(self, id):
+        wd = self.app.wd
+        wd.find_element_by_name("group").click()
+        self.select_contact_in_group()
+        wd.find_element_by_xpath("//*[@value='Delete']").click()
+        wd.switch_to_alert().accept()
+        self.contact_cache = None
+        self.return_home_page()
+
+    def select_contact_in_group(self):
+        wd = self.app.wd
+        wd.find_element_by_name("group").click()
+
 
     def delete_contact_by_id(self, id):
         wd = self.app.wd
