@@ -1,7 +1,7 @@
 
 {
   "web": {
-    "baseUrl": "http://localhost:8080/addressbook/",
+    "baseUrl": "http://localhost/addressbook/",
     "username": "admin",
     "password": "secret"
   },

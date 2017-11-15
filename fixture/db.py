@@ -15,6 +15,20 @@ class DbFixture:
         #self.connection = pymysql.connect(host=host, database=name, user=user, password=password)
         self.connection = pymysql.connect(host=host, database=name, user=user, password=password, autocommit=True)
 
+    def get_contacts_in_group1(self, group_id):
+        list = []
+        cursor = self.connection.cursor()
+        try:
+            cursor.execute(
+                "select id, firstname, lastname,  company, homepage, address from addressbook where deprecated='0000-00-00 00:00:00'")
+            for row in cursor:
+                (id, firstname, lastname, company, homepage, address) = row
+                list.append(
+                    Contact(id=str(id), firstname=firstname, lastname=lastname, company=company, homepage=homepage,
+                            address=address))
+        finally:
+            cursor.close()
+        return list
 
 
     def get_contact_list(self):
@@ -40,6 +54,7 @@ class DbFixture:
         finally:
             cursor.close()
         return list
+
 
 
     def destroy(self):

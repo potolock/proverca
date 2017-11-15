@@ -386,7 +386,7 @@ class Helper_contact:
 
     def open_edit_page(self):
         wd = self.app.wd
-        if (wd.current_url.endswith("http://localhost:8080/addressbook/") and (len(wd.find_element_by_name("to_group")) > 0)):
+        if (wd.current_url.endswith("http://localhost/addressbook/") and (len(wd.find_element_by_name("to_group")) > 0)):
             wd.find_element_by_link_text("add new").click()
 
     def open_home_page(self):

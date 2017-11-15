@@ -27,17 +27,6 @@ def test_add_contact_in_group(app):
 
 
 
-    # old_contacts = db.get_contact_list()
-    # # if len(old_contacts) == 0:
-    # #     app.group.fill_new(Contact(name="testerContact"))
-    # contacts = random.choice(old_contacts)
-    #
-    # contact_not_gr = random.choice(db.get_contacts_not_in_group(group))
-    # app.contact.add_contact_in_group(contacts)
-    # assert len(old_contacts_in_group) + 1 == app.contact.count()
-    # new_contact_in_group = db.get_contacts_in_group()
-    # old_contacts_in_group.append(contacts)
-    # assert sorted(old_contacts_in_group, key=Contact.id_or_max) == sorted(new_contact_in_group, key=Contact.id_or_max)
 
 
 
