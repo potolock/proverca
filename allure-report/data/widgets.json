@@ -1,54 +1,60 @@
 {
-  "hash" : "e7105c43ada45c9f6e0006854ef1a1d95249231d",
-  "plugins" : {
-    "total" : {
+  "hash" : "9ae4a52f46fbba0c959575303f697deb73e72d63",
+  "data" : [ {
+    "statistic" : {
+      "total" : 1,
+      "passed" : 1,
+      "pending" : 0,
+      "canceled" : 0,
+      "failed" : 0,
+      "broken" : 0
+    },
+    "time" : {
+      "start" : 1510846813109,
+      "stop" : 1510846828527,
+      "duration" : 15418
+    },
+    "name" : "total",
+    "type" : "TOTAL"
+  }, {
+    "name" : "defects",
+    "type" : "DEFECTS",
+    "data" : [ {
+      "count" : 0,
+      "message" : "There are no defects!",
+      "status" : "PASSED"
+    } ]
+  }, {
+    "name" : "xunit",
+    "type" : "TITLE_STATISTICS",
+    "data" : [ {
+      "title" : "Test del group",
       "statistic" : {
-        "total" : 6,
-        "passed" : 6,
+        "total" : 1,
+        "passed" : 1,
         "pending" : 0,
         "canceled" : 0,
         "failed" : 0,
         "broken" : 0
-      },
-      "time" : {
-        "start" : 1510826178421,
-        "stop" : 1510826230975,
-        "duration" : 52554
       }
-    },
-    "defects" : {
-      "totalCount" : 0,
-      "items" : [ ]
-    },
-    "xunit" : {
-      "totalCount" : 1,
-      "items" : [ {
-        "uid" : "f0461e22d68053a9",
-        "title" : "Test add group",
-        "statistic" : {
-          "total" : 6,
-          "passed" : 6,
-          "pending" : 0,
-          "canceled" : 0,
-          "failed" : 0,
-          "broken" : 0
-        }
-      } ]
-    },
-    "behaviors" : {
-      "totalCount" : 1,
-      "items" : [ {
-        "title" : "Without feature",
-        "statistic" : {
-          "total" : 6,
-          "passed" : 6,
-          "pending" : 0,
-          "canceled" : 0,
-          "failed" : 0,
-          "broken" : 0
-        }
-      } ]
-    },
-    "environment" : [ ]
-  }
+    } ]
+  }, {
+    "name" : "behaviors",
+    "type" : "TITLE_STATISTICS",
+    "data" : [ {
+      "title" : "Without feature",
+      "statistic" : {
+        "total" : 1,
+        "passed" : 1,
+        "pending" : 0,
+        "canceled" : 0,
+        "failed" : 0,
+        "broken" : 0
+      }
+    } ]
+  }, {
+    "name" : "environment",
+    "type" : "KEY_VALUE",
+    "data" : [ ]
+  } ]
 }
