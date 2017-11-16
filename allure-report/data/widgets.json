@@ -2,17 +2,17 @@
   "hash" : "9ae4a52f46fbba0c959575303f697deb73e72d63",
   "data" : [ {
     "statistic" : {
-      "total" : 1,
-      "passed" : 1,
+      "total" : 6,
+      "passed" : 6,
       "pending" : 0,
       "canceled" : 0,
       "failed" : 0,
       "broken" : 0
     },
     "time" : {
-      "start" : 1510847387625,
-      "stop" : 1510847428585,
-      "duration" : 40960
+      "start" : 1510849074627,
+      "stop" : 1510849094228,
+      "duration" : 19601
     },
     "name" : "total",
     "type" : "TOTAL"
@@ -28,10 +28,10 @@
     "name" : "xunit",
     "type" : "TITLE_STATISTICS",
     "data" : [ {
-      "title" : "Test modify group",
+      "title" : "Test add group",
       "statistic" : {
-        "total" : 1,
-        "passed" : 1,
+        "total" : 6,
+        "passed" : 6,
         "pending" : 0,
         "canceled" : 0,
         "failed" : 0,
@@ -44,8 +44,8 @@
     "data" : [ {
       "title" : "Without feature",
       "statistic" : {
-        "total" : 1,
-        "passed" : 1,
+        "total" : 6,
+        "passed" : 6,
         "pending" : 0,
         "canceled" : 0,
         "failed" : 0,

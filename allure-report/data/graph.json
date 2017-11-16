@@ -1,12 +1,67 @@
 {
   "testCases" : [ {
-    "uid" : "4aca8ee3b80a01fa",
-    "name" : "test_modify_group_name",
-    "title" : "Test modify group name",
+    "uid" : "127c8c476b5542cf",
+    "name" : "test_add_group[None::]",
+    "title" : "Test add group [None::]",
     "time" : {
-      "start" : 1510847387625,
-      "stop" : 1510847428585,
-      "duration" : 40960
+      "start" : 1510849074627,
+      "stop" : 1510849089289,
+      "duration" : 14662
+    },
+    "severity" : "NORMAL",
+    "status" : "PASSED"
+  }, {
+    "uid" : "2d4d73fb0b2856df",
+    "name" : "test_add_group[None:namexCLWChheaderw0jpQWK7qLdA5:footerU5YKg5stSJ]",
+    "title" : "Test add group [None:namexCLWChheaderw0jpQWK7qLdA5:footerU5YKg5stSJ]",
+    "time" : {
+      "start" : 1510849089291,
+      "stop" : 1510849090346,
+      "duration" : 1055
+    },
+    "severity" : "NORMAL",
+    "status" : "PASSED"
+  }, {
+    "uid" : "3777c91a72116b32",
+    "name" : "test_add_group[None:nameheader6FC:footer0]",
+    "title" : "Test add group [None:nameheader6FC:footer0]",
+    "time" : {
+      "start" : 1510849090348,
+      "stop" : 1510849091272,
+      "duration" : 924
+    },
+    "severity" : "NORMAL",
+    "status" : "PASSED"
+  }, {
+    "uid" : "e12e7e33baec90b9",
+    "name" : "test_add_group[None:nameheaderE9:footerjjd6kIBFlXKIY]",
+    "title" : "Test add group [None:nameheaderE9:footerjjd6kIBFlXKIY]",
+    "time" : {
+      "start" : 1510849091273,
+      "stop" : 1510849092204,
+      "duration" : 931
+    },
+    "severity" : "NORMAL",
+    "status" : "PASSED"
+  }, {
+    "uid" : "cb75736b2970578",
+    "name" : "test_add_group[None:namewljoOheaderSMjStx3dl:footer0tUJpjSgtpb]",
+    "title" : "Test add group [None:namewljoOheaderSMjStx3dl:footer0tUJpjSgtpb]",
+    "time" : {
+      "start" : 1510849092205,
+      "stop" : 1510849093208,
+      "duration" : 1003
+    },
+    "severity" : "NORMAL",
+    "status" : "PASSED"
+  }, {
+    "uid" : "815bfb833ecb9e28",
+    "name" : "test_add_group[None:nameb5EOvFheaderJJ8bKdJ2ZYS8Mrn:footernAUHWx3]",
+    "title" : "Test add group [None:nameb5EOvFheaderJJ8bKdJ2ZYS8Mrn:footernAUHWx3]",
+    "time" : {
+      "start" : 1510849093209,
+      "stop" : 1510849094228,
+      "duration" : 1019
     },
     "severity" : "NORMAL",
     "status" : "PASSED"

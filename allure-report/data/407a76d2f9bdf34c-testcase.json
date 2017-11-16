@@ -1,0 +1,68 @@
+{
+  "uid" : "407a76d2f9bdf34c",
+  "name" : "test_add_group[None:nameheaderE9:footerjjd6kIBFlXKIY]",
+  "title" : "Test add group [None:nameheaderE9:footerjjd6kIBFlXKIY]",
+  "time" : {
+    "start" : 1510848712833,
+    "stop" : 1510848713002,
+    "duration" : 169
+  },
+  "summary" : {
+    "attachments" : 0,
+    "steps" : 1
+  },
+  "failure" : {
+    "message" : "ValueError: unsupported format character 't' (0x74) at index 21",
+    "stackTrace" : "app = <fixture.application.Application object at 0x04241D70>\ndb = <fixture.db.DbFixture object at 0x042F0210>\njson_groups = None:nameheaderE9:footerjjd6kIBFlXKIY\n\n    def test_add_group(app, db, json_groups):\n            group = json_groups\n            with pytest.allure.step('Given a group list'):\n                old_groups = db.get_group_list()\n>           with pytest.allure.step('When I add a group % to the list' % group):\nE           ValueError: unsupported format character 't' (0x74) at index 21\n\ntest\\test_add_group.py:10: ValueError"
+  },
+  "description" : null,
+  "severity" : "NORMAL",
+  "status" : "FAILED",
+  "testId" : null,
+  "suite" : {
+    "uid" : "484bdd123f736944",
+    "name" : "test.test_add_group",
+    "title" : "Test add group"
+  },
+  "steps" : [ {
+    "name" : "Given a group list",
+    "title" : "Given a group list",
+    "time" : {
+      "start" : 1510848712997,
+      "stop" : 1510848712999,
+      "duration" : 2
+    },
+    "summary" : {
+      "attachments" : 0,
+      "steps" : 0
+    },
+    "status" : "PASSED",
+    "attachments" : [ ],
+    "steps" : [ ]
+  } ],
+  "attachments" : [ ],
+  "issues" : [ ],
+  "labels" : [ {
+    "name" : "thread",
+    "value" : "14152-MainThread"
+  }, {
+    "name" : "host",
+    "value" : "wks-krasnova"
+  }, {
+    "name" : "framework",
+    "value" : "pytest"
+  }, {
+    "name" : "suite-title",
+    "value" : null
+  }, {
+    "name" : "severity",
+    "value" : "normal"
+  }, {
+    "name" : "suite-name",
+    "value" : "test.test_add_group"
+  }, {
+    "name" : "language",
+    "value" : "cpython3"
+  } ],
+  "parameters" : [ ]
+}
