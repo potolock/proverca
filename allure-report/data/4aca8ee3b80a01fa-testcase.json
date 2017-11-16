@@ -1,0 +1,50 @@
+{
+  "uid" : "4aca8ee3b80a01fa",
+  "name" : "test_modify_group_name",
+  "title" : "Test modify group name",
+  "time" : {
+    "start" : 1510847387625,
+    "stop" : 1510847428585,
+    "duration" : 40960
+  },
+  "summary" : {
+    "attachments" : 0,
+    "steps" : 0
+  },
+  "failure" : null,
+  "description" : null,
+  "severity" : "NORMAL",
+  "status" : "PASSED",
+  "testId" : null,
+  "suite" : {
+    "uid" : "7522b0a776df4652",
+    "name" : "test.test_modify_group",
+    "title" : "Test modify group"
+  },
+  "steps" : [ ],
+  "attachments" : [ ],
+  "issues" : [ ],
+  "labels" : [ {
+    "name" : "thread",
+    "value" : "12388-MainThread"
+  }, {
+    "name" : "host",
+    "value" : "wks-krasnova"
+  }, {
+    "name" : "suite-name",
+    "value" : "test.test_modify_group"
+  }, {
+    "name" : "framework",
+    "value" : "pytest"
+  }, {
+    "name" : "suite-title",
+    "value" : null
+  }, {
+    "name" : "severity",
+    "value" : "normal"
+  }, {
+    "name" : "language",
+    "value" : "cpython3"
+  } ],
+  "parameters" : [ ]
+}

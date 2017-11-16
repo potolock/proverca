@@ -1,17 +1,17 @@
 {
   "time" : {
-    "start" : 1510846813109,
-    "stop" : 1510846828527,
-    "duration" : 15418
+    "start" : 1510847387625,
+    "stop" : 1510847428585,
+    "duration" : 40960
   },
   "testSuites" : [ {
-    "uid" : "3c07dd333e3c2813",
-    "name" : "test.test_del_group",
-    "title" : "Test del group",
+    "uid" : "7522b0a776df4652",
+    "name" : "test.test_modify_group",
+    "title" : "Test modify group",
     "time" : {
-      "start" : 1510846813109,
-      "stop" : 1510846828527,
-      "duration" : 15418
+      "start" : 1510847387625,
+      "stop" : 1510847428585,
+      "duration" : 40960
     },
     "statistic" : {
       "total" : 1,
@@ -23,13 +23,13 @@
     },
     "description" : null,
     "testCases" : [ {
-      "uid" : "f2b35d73cd3b335",
-      "name" : "test_delete_some_group",
-      "title" : "Test delete some group",
+      "uid" : "4aca8ee3b80a01fa",
+      "name" : "test_modify_group_name",
+      "title" : "Test modify group name",
       "time" : {
-        "start" : 1510846813109,
-        "stop" : 1510846828527,
-        "duration" : 15418
+        "start" : 1510847387625,
+        "stop" : 1510847428585,
+        "duration" : 40960
       },
       "severity" : "NORMAL",
       "status" : "PASSED"

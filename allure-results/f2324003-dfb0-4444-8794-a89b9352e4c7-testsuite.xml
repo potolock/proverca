@@ -1,13 +1,13 @@
-<ns0:test-suite xmlns:ns0="urn:model.allure.qatools.yandex.ru" start="1510846813109" stop="1510846828527">
-  <name>test.test_del_group</name>
+<ns0:test-suite xmlns:ns0="urn:model.allure.qatools.yandex.ru" start="1510847387625" stop="1510847428585">
+  <name>test.test_modify_group</name>
   <labels/>
   <test-cases>
-    <test-case start="1510846813109" status="passed" stop="1510846828527">
-      <name>test_delete_some_group</name>
+    <test-case start="1510847387625" status="passed" stop="1510847428585">
+      <name>test_modify_group_name</name>
       <attachments/>
       <labels>
         <label name="severity" value="normal"/>
-        <label name="thread" value="14852-MainThread"/>
+        <label name="thread" value="12388-MainThread"/>
         <label name="host" value="wks-krasnova"/>
         <label name="framework" value="pytest"/>
         <label name="language" value="cpython3"/>

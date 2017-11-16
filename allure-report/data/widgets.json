@@ -10,9 +10,9 @@
       "broken" : 0
     },
     "time" : {
-      "start" : 1510846813109,
-      "stop" : 1510846828527,
-      "duration" : 15418
+      "start" : 1510847387625,
+      "stop" : 1510847428585,
+      "duration" : 40960
     },
     "name" : "total",
     "type" : "TOTAL"
@@ -28,7 +28,7 @@
     "name" : "xunit",
     "type" : "TITLE_STATISTICS",
     "data" : [ {
-      "title" : "Test del group",
+      "title" : "Test modify group",
       "statistic" : {
         "total" : 1,
         "passed" : 1,
