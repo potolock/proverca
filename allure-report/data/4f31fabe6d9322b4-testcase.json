@@ -1,0 +1,50 @@
+{
+  "uid" : "4f31fabe6d9322b4",
+  "name" : "test_add_group[None:namexCLWChheaderw0jpQWK7qLdA5:footerU5YKg5stSJ]",
+  "title" : "Test add group [None:namexCLWChheaderw0jpQWK7qLdA5:footerU5YKg5stSJ]",
+  "time" : {
+    "start" : 1510826225666,
+    "stop" : 1510826226942,
+    "duration" : 1276
+  },
+  "summary" : {
+    "attachments" : 0,
+    "steps" : 0
+  },
+  "failure" : null,
+  "description" : null,
+  "severity" : "NORMAL",
+  "status" : "PASSED",
+  "suite" : {
+    "uid" : "f0461e22d68053a9",
+    "name" : "test.test_add_group",
+    "title" : "Test add group"
+  },
+  "steps" : [ ],
+  "attachments" : [ ],
+  "issues" : [ ],
+  "testIds" : [ ],
+  "labels" : [ {
+    "name" : "host",
+    "value" : "wks-krasnova"
+  }, {
+    "name" : "framework",
+    "value" : "pytest"
+  }, {
+    "name" : "thread",
+    "value" : "10940-MainThread"
+  }, {
+    "name" : "suite-title",
+    "value" : null
+  }, {
+    "name" : "severity",
+    "value" : "normal"
+  }, {
+    "name" : "suite-name",
+    "value" : "test.test_add_group"
+  }, {
+    "name" : "language",
+    "value" : "cpython3"
+  } ],
+  "parameters" : [ ]
+}
